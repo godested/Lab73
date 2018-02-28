@@ -1,0 +1,13 @@
+{
+  "name": "Lab73",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch"
+  },
+  "author": "godested",
+  "license": "ISC"
+}
