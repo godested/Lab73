@@ -1,4 +1,4 @@
-require('../styles/main.scss');
+require('styles/main.scss');
 
 $(document).ready(function () {
   var page = $('#page');

@@ -46,12 +46,14 @@ module.exports = {
           use: [{
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              minimize: true
             }
           }, {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              minimize: true
             }
           }]
         })
@@ -59,7 +61,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.scss'],
-    modules: ['./node_modules', './src/client']
+    modules: ['./node_modules', './src']
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -67,10 +69,15 @@ module.exports = {
     }),
     new ExtractTextPlugin('styles.css'),
     new UglifyJsPlugin(),
-    new CopyWebpackPlugin([{
-      from: './src/scripts/lib',
-      to: './lib'
-    }])
+    new CopyWebpackPlugin([
+      {
+        from: './src/scripts/lib',
+        to: './lib'
+      },
+      {
+        from: './src/assets',
+        to: './assets'
+      }])
   ],
   devtool: 'source-map',
   devServer: {
