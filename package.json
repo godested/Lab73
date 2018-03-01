@@ -5,8 +5,11 @@
   "main": "index.js",
   "keywords": [],
   "scripts": {
+    "start": "gulp && gulp watch",
     "build": "gulp",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "grid": "node gridconfig.js",
+    "server": "webpack-dev-server"
   },
   "author": "godested",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "smart-grid": "^2.0.1",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^3.10.0",
+    "webpack-cli": "^2.0.9",
     "webpack-stream": "^4.0.2"
   }
 }

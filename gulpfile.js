@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
@@ -8,7 +9,7 @@ const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 
-gulp.task('default', ['styles', 'html', 'scripts', 'assets', 'fonts']);
+gulp.task('default', ['styles', 'html', 'scripts', 'assets', 'fonts');
 
 gulp.task('watch', ['styles:watch', 'html:watch', 'scripts:watch', 'assets:watch', 'fonts:watch']);
 
@@ -63,3 +64,4 @@ gulp.task('assets', function () {
 gulp.task('assets:watch', function () {
   gulp.watch('./src/assets/**/**', ['assets']);
 });
+
