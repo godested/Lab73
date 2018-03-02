@@ -12,15 +12,20 @@
 </head>
 <body>
 <div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <header class="header">
-        <a class="logo" href="./">
-          <img src="./assets/logo.png" alt="TeaserGuru" class="logo__image">
-        </a>
-      </header>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="header__inner">
+          <a class="logo" href="./">
+            <img src="./assets/logo.png" alt="TeaserGuru" class="logo__image">
+          </a>
+        </div>
+      </div>
     </div>
-    <main class="hero">
+  </header>
+  
+  <main class="hero">
+    <div class="container">
       <div class="row">
         <div class="hero__info">
           <h1 class="hero__title">Тизерная реклама с <span class="hero__keyword">максимальной</span> конверсией</h1>
@@ -30,21 +35,26 @@
         </div>
         <div class="hero__presentation parallax">
           <div class="parallax__layer" data-layerPosition="0">
-          
+            <img src="./assets/img-parallax-4.png" alt="parallax" class="parallax__image">
           </div>
           <div class="parallax__layer" data-layerPosition="1">
-          
+            <img src="./assets/img-parallax-3.png" alt="parallax" class="parallax__image">
           </div>
           <div class="parallax__layer" data-layerPosition="2">
-          
+            <img src="./assets/img-parallax-2.png" alt="parallax" class="parallax__image">
           </div>
-          <div class="parallax__layer" data-layerPosition="3">
-          
+          <div class="parallax__layer parallax__layer--macbook" data-layerPosition="3">
+            <img src="./assets/img-parallax-1.png" alt="parallax" class="parallax__image">
+            <div class="hero__video-outer">
+              <video src="./assets/video-sample.mp4" class="hero__video" type="video/mp4" autoplay="autoplay"
+                     loop="loop"></video>
+            </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+  
 </div>
 </body>
 </html>
