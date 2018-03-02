@@ -1,3 +1,8 @@
+body {
+  font-family: $defaultFonts;
+  font-size: 18px;
+}
+
 .container {
   @include wrapper();
 }
