@@ -1,8 +1,40 @@
 .header {
+  @include col();
+  @include size(14);
+  display: flex;
   padding: 33px 0;
 }
 
 .logo {
   display: block;
-  text-indent: -9999px;
+  max-width: 200px;
+  max-height: 25px;
+
+  &__image {
+    width: 100%;
+  }
+}
+
+.hero {
+
+  &__info, &__presentation {
+    @include col();
+    @include size(7);
+  }
+
+  &__keyword {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 16px;
+      width: 100%;
+      background-color: $keywordDecorationColor;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
 }
