@@ -1,7 +1,11 @@
-.header__inner {
-  @include col();
-  @include size(14);
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 0;
+.header {
+  transform: translateY(-100px);
+
+  &__inner {
+    @include col();
+    @include size(14);
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+  }
 }
