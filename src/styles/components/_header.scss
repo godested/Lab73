@@ -1,0 +1,7 @@
+.header__inner {
+  @include col();
+  @include size(14);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
