@@ -1,5 +1,5 @@
 .page-navigation {
-  background: url("../assets/img-text-guru.jpg") no-repeat left bottom;
+  background: url("/assets/img-text-guru.jpg") no-repeat left bottom;
 
   &__inner {
     @include col();
@@ -46,13 +46,13 @@
 
   &--partner {
     left: 0;
-    background-image: url('../assets/img-button-1.png');
+    background-image: url('/assets/img-button-1.png');
     margin-right: 45px;
   }
 
   &--ad {
     right: 0;
-    background-image: url('../assets/img-button-2.png');
+    background-image: url('/assets/img-button-2.png');
     margin-left: 45px;
   }
 
