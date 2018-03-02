@@ -39,8 +39,7 @@
   &__keyword {
     position: relative;
 
-    &::before {
-      content: '';
+    .border {
       display: block;
       position: absolute;
       height: 16px;
