@@ -1,0 +1,76 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: $navigationBackgroundColor url('../../assets/img-menu-bg.jpg') -120% no-repeat;
+  background-size: auto 100%;
+  transition: all .5s ease-in;
+  z-index: 999;
+
+  &__offset {
+    @include col();
+    @include size(7);
+  }
+
+  &__inner {
+    @include col();
+    @include size(7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.5555em;
+    padding: 30px 0;
+    font-family: $navigationFontFamily;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 30px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $navigationSeparatorColor;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $navigationColor;
+    transition: all .2s ease;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+}

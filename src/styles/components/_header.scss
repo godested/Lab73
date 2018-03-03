@@ -1,5 +1,7 @@
 .header {
   transform: translateY(-100px);
+  position: relative;
+  z-index: 9999;
 
   &__inner {
     @include col();
@@ -11,5 +13,7 @@
 }
 
 .hamburger {
+  position: relative;
   outline: 0;
+  z-index: 9999;
 }
