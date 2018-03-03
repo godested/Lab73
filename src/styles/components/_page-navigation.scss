@@ -1,5 +1,6 @@
 .page-navigation {
   background: url("/assets/img-text-guru.jpg") no-repeat left bottom;
+  padding-bottom: 50px;
 
   &__inner {
     @include col();
@@ -36,11 +37,11 @@
 
     .option__description {
       opacity: 1;
-      top: calc(50% + 30px);
+      top: calc(50% + 25px);
     }
 
     .option__title {
-      top: -30px;
+      top: -25px;
     }
   }
 

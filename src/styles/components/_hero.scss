@@ -1,4 +1,6 @@
 .hero {
+  display: flex;
+  align-items: center;
 
   &__info, &__presentation {
     @include col();
