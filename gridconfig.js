@@ -1,27 +1,27 @@
-var smartgrid = require('smart-grid');
+const smartgrid = require('smart-grid');
 
-var settings = {
-  outputStyle: 'scss', /* less || scss || sass || styl */
-  columns: 14, /* number of grid columns */
-  offset: '30px', /* gutter width px || % */
-  mobileFirst: false, /* mobileFirst ? 'min-width' : 'max-width' */
+const settings = {
+  outputStyle: 'scss',
+  columns: 14,
+  offset: '30px',
+  mobileFirst: false,
   container: {
-    maxWidth: '1400px', /* max-width оn very large screen */
-    fields: '15px' /* side fields */
+    maxWidth: '1400px',
+    fields: '15px'
   },
   breakPoints: {
     lg: {
-      width: '1440px'
+      width: '1280px'
     },
     md: {
       width: '1024px'
     },
     sm: {
-      width: '780px',
+      width: '768px',
       fields: '15px'
     },
     xs: {
-      width: '560px'
+      width: '480px'
     }
   }
 };

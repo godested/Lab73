@@ -25,13 +25,13 @@ const desktop = function () {
     .add('titleTransitionEnd')
     .fromTo(heroKeywordBorder, 0.5, {width: '0'}, {width: '98%'}, 'titleTransitionEnd')
     .fromTo(heroDescription, 0.5, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
-    .staggerFromTo(parallaxLayers, 0.5, {scale: 0}, {scale: 1, opacity: 1}, 0.3, 'headerTransitionEnd')
+    .staggerFromTo(parallaxLayers, 0.3, {scale: 0}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
     .add(function () {
       parallax = new Parallax(document.querySelector('.parallax'), {
         relativeInput: true
       });
     })
-    .staggerFromTo(pageNavigationLink, 0.5, {y: 50}, {opacity: 1, y: 0}, 0.5);
+    .staggerFromTo(pageNavigationLink, 0.5, {y: 80}, {opacity: 1, y: 0}, 0.5);
 
 
   const menuButton = $('.menu-button');
