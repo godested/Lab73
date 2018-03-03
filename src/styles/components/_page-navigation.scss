@@ -1,6 +1,6 @@
 .page-navigation {
   background: url("/assets/img-text-guru.jpg") no-repeat left bottom;
-  padding-bottom: 50px;
+  padding: 30px 0 50px 0;
 
   &__inner {
     @include col();
