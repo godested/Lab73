@@ -46,15 +46,14 @@
   }
 
   &--partner {
-    left: 0;
     background-image: url('/assets/img-button-1.png');
-    margin-right: 45px;
+    flex-grow: 2;
+    margin-right: 15px;
   }
 
   &--ad {
-    right: 0;
     background-image: url('/assets/img-button-2.png');
-    margin-left: 45px;
+    margin-left: 15px;
   }
 
   &__title, &__description {
