@@ -1,5 +1,4 @@
 .header {
-  transform: translateY(-100px);
   position: relative;
   z-index: 9999;
 
@@ -12,14 +11,15 @@
   }
 }
 
-.hamburger {
+.menu-button {
   position: relative;
   outline: 0;
   z-index: 9999;
+  transform: translateY(-100px);
 }
 
 @media screen and(max-width: $break_sm) {
-  .header {
+  .menu-button {
     transform: none;
   }
 }

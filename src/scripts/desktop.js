@@ -6,6 +6,8 @@ const desktop = function () {
   const timeLine = new TimelineMax();
 
   const header = $('.header');
+  const logo = $('.logo');
+  const menuButton = $('.menu-button');
   const hero = $('.hero');
   const heroTitle = $('.hero__title');
   const heroDescription = $('.hero__description');
@@ -21,7 +23,7 @@ const desktop = function () {
     return window.innerHeight - header.outerHeight() - pageNavigation.outerHeight();
   });
 
-  timeLine.to(header, 0.5, {y: 0, ease: Power1.easeIn})
+  timeLine.staggerTo([logo, menuButton], 0.5, {y: 0, ease: Power1.easeIn}, 0.5)
     .add('headerTransitionEnd')
     .fromTo(heroTitle, 0.5, {y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
     .add('titleTransitionEnd')
@@ -34,9 +36,6 @@ const desktop = function () {
       });
     })
     .staggerFromTo(pageNavigationLink, 0.5, {y: 80}, {opacity: 1, y: 0}, 0.5);
-
-
-  const menuButton = $('.menu-button');
 
   let menuIsOpen = false;
 
@@ -59,6 +58,8 @@ const desktop = function () {
     $(this).toggleClass('is-active');
     toggleMenu();
   });
+
+
 };
 
 export default desktop;
