@@ -107,6 +107,13 @@
 
     &__info, &__presentation {
       @include size-sm(14);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    &__presentation {
+      flex-grow: 2;
     }
 
     &__title, &__description {

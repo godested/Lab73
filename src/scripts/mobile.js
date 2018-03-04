@@ -2,11 +2,7 @@ import $ from "jquery";
 
 const mobile = function () {
   const header = $('.header');
-  const hero = $('.hero');
-
-  hero.css('min-height', function () {
-    return window.innerHeight - header.outerHeight();
-  });
+  const heroInfo = $('.hero__info');
 };
 
 export default mobile;
