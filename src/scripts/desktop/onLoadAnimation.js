@@ -20,7 +20,7 @@ const onLoadAnimation = function () {
     .add('titleTransitionEnd')
     .fromTo(heroKeywordBorder, 0.5, {width: '0'}, {width: '98%'}, 'titleTransitionEnd')
     .fromTo(heroDescription, 0.5, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
-    .staggerFromTo(parallaxLayers, 0.3, {scale: 0}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
+    .staggerFromTo(parallaxLayers, 0.3, {scale: 0.5}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
     .call(function () {
       parallax = new Parallax(document.querySelector('.parallax'), {
         relativeInput: true

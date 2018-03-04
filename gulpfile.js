@@ -24,7 +24,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('scripts:watch', function () {
-  gulp.watch('./src/scripts/*.js', ['scripts']);
+  gulp.watch('./src/scripts/**/*.js', ['scripts']);
 });
 
 gulp.task('html', function () {
