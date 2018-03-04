@@ -18,7 +18,7 @@ const settings = {
     },
     sm: {
       width: '768px',
-      fields: '15px'
+      fields: '30px'
     },
     xs: {
       width: '480px'

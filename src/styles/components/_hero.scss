@@ -7,6 +7,12 @@
     @include size(7);
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   &__presentation {
     display: flex;
     justify-content: center;
@@ -14,6 +20,7 @@
   }
 
   &__title {
+    padding-top: 30px;
     font-family: $heroTitleFontFamily;
     position: relative;
     font-size: 3.33333em;
@@ -91,5 +98,33 @@
 
   &__image {
     max-width: 100%;
+  }
+}
+
+@media screen and(max-width: $break_sm) {
+
+  .hero {
+
+    &__info, &__presentation {
+      @include size-sm(14);
+    }
+
+    &__title, &__description {
+      opacity: 1;
+    }
+
+    &__title {
+
+      &::before {
+        content: '';
+      }
+    }
+
+    .parallax {
+
+      &__layer {
+        opacity: 1;
+      }
+    }
   }
 }

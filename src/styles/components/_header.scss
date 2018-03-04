@@ -17,3 +17,9 @@
   outline: 0;
   z-index: 9999;
 }
+
+@media screen and(max-width: $break_sm) {
+  .header {
+    transform: none;
+  }
+}
