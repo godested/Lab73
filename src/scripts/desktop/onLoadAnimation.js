@@ -1,6 +1,6 @@
-import { Power1, TimelineMax } from "gsap";
-import Parallax from "parallax-js";
-import $ from "jquery";
+import { Power1, TimelineMax } from 'gsap';
+import Parallax from 'parallax-js';
+import $ from 'jquery';
 
 const onLoadAnimation = function () {
   const timeLine = new TimelineMax();

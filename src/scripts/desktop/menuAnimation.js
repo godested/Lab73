@@ -1,5 +1,5 @@
-import { TimelineMax } from "gsap";
-import $ from "jquery";
+import { TimelineMax } from 'gsap';
+import $ from 'jquery';
 
 const menuAnimation = function () {
   const menuButton = $('.menu-button');
@@ -12,8 +12,8 @@ const menuAnimation = function () {
     const tl = new TimelineMax();
 
     if (!menuIsOpen) {
-      tl.to(navigation, 0.5, {width: "100%"})
-        .set(navigation, {backgroundSize: "auto 100%"})
+      tl.to(navigation, 0.5, {width: '100%'})
+        .set(navigation, {backgroundSize: 'auto 100%'})
         .to(navigation, 0.5, {backgroundPositionX: 0})
         .staggerFromTo(navigationList, 0.5, {
           x: -50,
@@ -21,14 +21,14 @@ const menuAnimation = function () {
         }, {
           x: 0,
           opacity: 1
-        }, 0.5, "backgroundTransitionEnd");
+        }, 0.5, 'backgroundTransitionEnd');
     } else {
       tl.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
         .set(navigation, {
           width: 0,
           opacity: 1,
-          backgroundSize: "auto 0",
-          backgroundPositionX: "-100%"
+          backgroundSize: 'auto 0',
+          backgroundPositionX: '-100%'
         });
     }
 
