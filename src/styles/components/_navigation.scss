@@ -1,13 +1,12 @@
 .navigation {
   position: fixed;
   top: 0;
-  left: -100%;
-  width: 100%;
+  width: 0;
   height: 100vh;
-  background: $navigationBackgroundColor url('../../assets/img-menu-bg.jpg') -120% no-repeat;
-  background-size: auto 100%;
-  transition: all .5s ease-in;
+  background: $navigationBackgroundColor url('../../assets/img-menu-bg.jpg') -100% no-repeat;
+  background-size: auto 0;
   z-index: 999;
+  overflow: hidden;
 
   &__offset {
     @include col();

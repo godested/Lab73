@@ -12,12 +12,24 @@ const menuAnimation = function () {
     const tl = new TimelineMax();
 
     if (!menuIsOpen) {
-      tl.to(navigation, 0.5, {left: 0})
-        .fromTo(navigation, 0.5, {backgroundPositionX: "-120%", opacity: 1}, {backgroundPositionX: 0})
-        .staggerFromTo(navigationList, 0.5, {x: -50, opacity: 0}, {x: 0, opacity: 1}, 0.5, "backgroundTransitionEnd");
+      tl.to(navigation, 0.5, {width: "100%"})
+        .to(navigation, 0.5, {backgroundSize: "auto 100%"})
+        .to(navigation, 0.5, {backgroundPositionX: 0})
+        .staggerFromTo(navigationList, 0.5, {
+          x: -50,
+          opacity: 0
+        }, {
+          x: 0,
+          opacity: 1
+        }, 0.5, "backgroundTransitionEnd");
     } else {
       tl.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
-        .set(navigation, {left: "-100%"}, "+=0.5")
+        .set(navigation, {
+          width: 0,
+          opacity: 1,
+          backgroundSize: "auto 0",
+          backgroundPositionX: "-100%"
+        });
     }
 
     menuIsOpen = !menuIsOpen;
