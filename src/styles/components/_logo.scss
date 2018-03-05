@@ -1,9 +1,8 @@
 .logo {
+  position: relative;
   display: block;
   max-width: 220px;
   max-height: 25px;
-  flex-grow: 1;
-  transform: translateY(-100px);
 
   &__image {
     width: 100%;
@@ -13,6 +12,7 @@
 
 @media screen and(max-width: $break_sm) {
   .logo {
-    transform: none;
+    position: relative;
+    float: left;
   }
 }

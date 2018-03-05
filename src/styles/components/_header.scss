@@ -5,21 +5,22 @@
   &__inner {
     @include col();
     @include size(14);
+    position: relative;
     display: flex;
-    justify-content: space-between;
     padding: 30px 0;
   }
 }
 
 .menu-button {
-  position: relative;
+  position: absolute;
+  right: 0;
   outline: 0;
   z-index: 9999;
-  transform: translateY(-100px);
 }
 
 @media screen and(max-width: $break_sm) {
-  .menu-button {
+
+  .header {
     transform: none;
   }
 }

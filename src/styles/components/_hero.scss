@@ -10,7 +10,6 @@
   &__info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   &__presentation {
@@ -19,13 +18,17 @@
     align-items: center;
   }
 
+  &__title, &__description {
+    margin: 0;
+  }
+
   &__title {
     padding-top: 30px;
     font-family: $heroTitleFontFamily;
     position: relative;
     font-size: 3.33333em;
     word-wrap: break-word;
-    opacity: 0;
+    flex-grow: 2;
 
     &::before {
       content: '';
@@ -44,7 +47,6 @@
   &__description {
     color: $heroDescriptionColor;
     font-size: 1em;
-    opacity: 0;
   }
 
   &__keyword {
@@ -53,8 +55,7 @@
     .border {
       display: block;
       position: absolute;
-      height: 16px;
-      width: 98%;
+      height: 30%;
       background-color: $keywordDecorationColor;
       left: 1%;
       bottom: 19%;
@@ -87,7 +88,6 @@
   &__layer {
     position: absolute;
     top: 0;
-    opacity: 0;
     max-width: 100%;
 
     &--macbook {
@@ -101,6 +101,15 @@
   }
 }
 
+@media screen and(max-width: $break_md) {
+  .hero {
+
+    &__info, &__presentation {
+      @include size-md(14);
+    }
+  }
+
+}
 @media screen and(max-width: $break_sm) {
 
   .hero {
@@ -117,10 +126,11 @@
     }
 
     &__title, &__description {
-      opacity: 1;
+      text-align: center;
     }
 
     &__title {
+      font-size: 1.7777em;
 
       &::before {
         content: '';
@@ -130,7 +140,6 @@
     .parallax {
 
       &__layer {
-        opacity: 1;
       }
     }
   }
