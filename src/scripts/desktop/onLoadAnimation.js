@@ -5,6 +5,7 @@ import $ from 'jquery';
 const onLoadAnimation = function () {
   const timeLine = new TimelineMax();
 
+  const loader = $('.loader');
   const header = $('.header');
   const heroTitle = $('.hero__title');
   const heroDescription = $('.hero__description');
@@ -13,7 +14,8 @@ const onLoadAnimation = function () {
   let parallax;
   const parallaxLayers = $('.parallax__layer');
 
-  timeLine
+  timeLine.to(loader, 0.5, {opacity: 0}, 0.3)
+    .set(loader, {display: "none"})
     .fromTo(header, 0.5, {y: -100}, {y: 0, ease: Power1.easeIn}, 0.5)
     .add('headerTransitionEnd')
     .fromTo(heroTitle, 0.5, {opacity: 0, y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
