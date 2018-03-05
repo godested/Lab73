@@ -13,7 +13,7 @@ const menuAnimation = function () {
 
     if (!menuIsOpen) {
       tl.to(navigation, 0.5, {width: "100%"})
-        .to(navigation, 0.5, {backgroundSize: "auto 100%"})
+        .set(navigation, {backgroundSize: "auto 100%"})
         .to(navigation, 0.5, {backgroundPositionX: 0})
         .staggerFromTo(navigationList, 0.5, {
           x: -50,
