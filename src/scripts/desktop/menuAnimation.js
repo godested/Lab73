@@ -2,6 +2,7 @@ import { TimelineMax } from 'gsap';
 import $ from 'jquery';
 
 const menuAnimation = function () {
+  const timeLine = new TimelineMax();
   const menuButton = $('.menu-button');
   const navigation = $('.navigation');
   const navigationList = $('.navigation__item');
@@ -9,10 +10,9 @@ const menuAnimation = function () {
   let menuIsOpen = false;
 
   const toggleMenu = function () {
-    const tl = new TimelineMax();
 
     if (!menuIsOpen) {
-      tl.to(navigation, 0.5, {width: '100%'})
+      timeLine.to(navigation, 0.5, {width: '100%'})
         .set(navigation, {backgroundSize: 'auto 100%'})
         .to(navigation, 0.5, {backgroundPositionX: 0})
         .staggerFromTo(navigationList, 0.5, {
@@ -21,14 +21,18 @@ const menuAnimation = function () {
         }, {
           x: 0,
           opacity: 1
-        }, 0.5, 'backgroundTransitionEnd');
+        }, 0.5);
     } else {
-      tl.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
+      timeLine.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
         .set(navigation, {
           width: 0,
           opacity: 1,
           backgroundSize: 'auto 0',
           backgroundPositionX: '-100%'
+        })
+        .set(navigationList, {
+          x: -50,
+          opacity: 0
         });
     }
 
