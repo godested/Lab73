@@ -146,8 +146,9 @@
     }
 
     &__title {
-      padding-top: 60px;
+      padding-top: 30px;
       font-size: 1.7777em;
+      margin-bottom: 30px;
 
       &::before {
         content: none;
@@ -155,7 +156,7 @@
     }
 
     &__description {
-      padding-top: 45px;
+      padding: 15px 0;
     }
   }
 
