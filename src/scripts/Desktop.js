@@ -38,7 +38,7 @@ Desktop.prototype.animateWindow = function () {
   ], {opacity: 0})
     .to(loader, duration, {opacity: 0}, 0.3)
     .set(loader, {display: "none"})
-    .fromTo(header, duration , {y: -100}, {y: 0, ease: Power1.easeIn}, duration)
+    .fromTo(header, duration, {y: -100}, {y: 0, ease: Power1.easeIn}, duration)
     .add('headerTransitionEnd')
     .fromTo(heroTitle, duration, {y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
     .add('titleTransitionEnd')
@@ -55,14 +55,14 @@ Desktop.prototype.animateWindow = function () {
 };
 
 Desktop.prototype.toggleMenu = function () {
-  const {navigation, navigationList} = this.domNodes;
+  const {navigation, navigationList, navigationBackground} = this.domNodes;
   const {duration} = this.animationConfig.menu;
   const timeLine = new TimelineLite();
 
   if (!this.menuIsOpen) {
     timeLine.set(navigation, {display: 'block'})
       .fromTo(navigation, duration, {opacity: 0}, {opacity: 1})
-      .to(navigation, duration, {backgroundPositionX: 0})
+      .to(navigationBackground, duration, {transform: 'translateX(0)'})
       .staggerFromTo(navigationList, 0.5, {
         x: -50,
         opacity: 0
@@ -72,7 +72,8 @@ Desktop.prototype.toggleMenu = function () {
       }, 0.5);
   } else {
     timeLine.fromTo(navigation, duration, {opacity: 1}, {opacity: 0})
-      .set(navigation, {display: 'none', backgroundPositionX: '-100%'})
+      .set(navigation, {display: 'none'})
+      .set(navigationBackground, {transform: 'translateX(-100%)'})
       .set(navigationList, {x: -50, opacity: 0});
   }
   this.menuIsOpen = !this.menuIsOpen;

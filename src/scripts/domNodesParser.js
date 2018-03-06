@@ -4,6 +4,7 @@ const domNodesParser = function () {
   return  {
     menuButton: $('.menu-button'),
     navigation: $('.navigation'),
+    navigationBackground: $('.navigation__background'),
     navigationList: $('.navigation__item'),
     leftButton: $('.option--partner'),
     rightButton: $('.option--ad'),

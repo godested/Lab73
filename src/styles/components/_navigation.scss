@@ -5,10 +5,21 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background: $navigationBackgroundColor url('../assets/img-menu-bg.jpg') -100% 0 no-repeat;
-  background-size: contain;
+  background-color: $navigationBackgroundColor;
   z-index: 999;
   overflow: hidden;
+
+  &__background {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    background-image: url("../../assets/img-menu-bg.jpg");
+    background-size: cover;
+  }
 
   &__offset {
     @include col();
@@ -79,11 +90,14 @@
 @media screen and (max-width: $break_sm){
   .navigation {
     position: absolute;
-    background-image: none;
     height: auto;
     top: 100%;
 
     &__offset {
+      display: none;
+    }
+
+    &__background {
       display: none;
     }
 
