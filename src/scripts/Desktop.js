@@ -44,7 +44,10 @@ Desktop.prototype.animateWindow = function () {
     .fromTo(heroDescription, 0.5, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
     .staggerFromTo(parallaxLayers, 0.3, {scale: 0.5}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
     .call(createParallax)
-    .staggerFromTo(pageNavigationLink, 0.5, {top: "50px"}, {opacity: 1, top: 0}, 0.5);
+    .staggerFromTo(pageNavigationLink, 0.5, {top: "50px"}, {opacity: 1, top: 0}, 0.5)
+    .call(function () {
+      pageNavigationLink.removeAttr('style');
+    });
 
   return this;
 };

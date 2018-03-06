@@ -101,6 +101,10 @@
   }
 }
 
+.arrow-down {
+  display: none;
+}
+
 @media screen and(max-width: $break_md) {
   .hero {
 
@@ -110,9 +114,14 @@
   }
 
 }
+
 @media screen and(max-width: $break_sm) {
 
   .hero {
+
+    .row {
+      flex-direction: column;
+    }
 
     &__info, &__presentation {
       @include size-sm(14);
@@ -121,16 +130,68 @@
       justify-content: space-around;
     }
 
+    &__presentation {
+      flex-grow: 2;
+    }
+
     &__title, &__description {
       text-align: center;
     }
 
     &__title {
+      padding-top: 60px;
       font-size: 1.7777em;
 
       &::before {
         content: '';
       }
+    }
+
+    &__description {
+      padding-top: 45px;
+    }
+  }
+
+  .arrow-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+
+    &__title {
+      margin: 0;
+      font-family: $defaultFonts;
+      font-size: 0.8889em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    &__link {
+      display: block;
+      position: relative;
+      height: 60px;
+      width: 100%;
+      background: url("/assets/arrow-down.svg") no-repeat;
+      background-size: contain;
+      animation: bouncing 2s infinite;
+      background-position-x: center;
+      background-position-y: -10px;
+    }
+
+    @keyframes bouncing {
+      0% {
+        background-position-y: -10px;
+      }
+
+      50% {
+        background-position-y: 20px;
+      }
+
+      100% {
+        background-position-y: -10px;
+      }
+
     }
   }
 }

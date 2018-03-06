@@ -5,10 +5,21 @@ const Mobile = function (options = {}) {
   this.menuIsOpen = false;
   this.domNodes = options.domNodes;
 
+  this.setHeroSizes = this.setHeroSizes.bind(this);
   this.animateWindow = this.animateWindow.bind(this);
   this.toggleMenu = this.toggleMenu.bind(this);
   this.delegateEvents = this.delegateEvents.bind(this);
   this.render = this.render.bind(this);
+};
+
+Mobile.prototype.setHeroSizes = function () {
+  const {hero, header} = this.domNodes;
+
+  hero.find($('.row')).css('min-height', function () {
+    return window.innerHeight - header.innerHeight();
+  });
+
+  return this
 };
 
 Mobile.prototype.animateWindow = function () {
@@ -73,7 +84,7 @@ Mobile.prototype.delegateEvents = function () {
 };
 
 Mobile.prototype.render = function () {
-  this.animateWindow().delegateEvents();
+  this.setHeroSizes().animateWindow().delegateEvents();
 };
 
 export default Mobile;
