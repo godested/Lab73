@@ -53,11 +53,11 @@
   }
 
   &--partner {
-    background-image: url('/assets/img-button-1.png');
+    background-image: url('../assets/img-button-1.png');
   }
 
   &--ad {
-    background-image: url('/assets/img-button-2.png');
+    background-image: url('../assets/img-button-2.png');
   }
 
   &__title, &__description {
@@ -157,12 +157,12 @@
     }
 
     &--partner {
-      background-image: url("/assets/img-button-mobile-1.jpg");
+      background-image: url("../assets/img-button-mobile-1.jpg");
     }
 
     &--ad {
       transform: translateY(100%);
-      background-image: url("/assets/img-button-mobile-2.jpg");
+      background-image: url("../assets/img-button-mobile-2.jpg");
     }
 
     &:hover {
