@@ -58,11 +58,11 @@ Desktop.prototype.toggleMenu = function () {
   const {navigation, navigationList, navigationBackground} = this.domNodes;
   const {duration} = this.animationConfig.menu;
   const timeLine = new TimelineLite();
-  const backroundPosition = (window.innerWidth / 2) * -1 + 'px';
+  const backgroundPosition = (window.innerWidth / 2) * -1 + 'px';
 
   if (!this.menuIsOpen) {
     timeLine.set(navigation, {display: 'block'})
-      .set(navigationBackground, {left: backroundPosition})
+      .set(navigationBackground, {left: backgroundPosition})
       .fromTo(navigation, duration, {opacity: 0}, {opacity: 1})
       .to(navigationBackground, duration, {left: 0})
       .staggerFromTo(navigationList, 0.5, {
@@ -75,7 +75,7 @@ Desktop.prototype.toggleMenu = function () {
   } else {
     timeLine.fromTo(navigation, duration, {opacity: 1}, {opacity: 0})
       .set(navigation, {display: 'none'})
-      .set(navigationBackground, {left: backroundPosition})
+      .set(navigationBackground, {left: backgroundPosition})
       .set(navigationList, {x: -50, opacity: 0});
   }
   this.menuIsOpen = !this.menuIsOpen;
