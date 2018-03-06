@@ -28,7 +28,9 @@ DomNodes.prototype.getNodes = function () {
     pageNavigationLink: $('.page-navigation__inner'),
     parallaxLayers: $('.parallax__layer'),
     arrowDown: $('.arrow-down'),
-    arrowDownLink: $('.arrow-down__link')
+    arrowDownLink: $('.arrow-down__link'),
+    mobileMenuHeader: $('.mobile-menu-header'),
+    mobileLogo: $('.mobile-menu-header__logo')
   };
 
   return this;

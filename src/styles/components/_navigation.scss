@@ -40,10 +40,6 @@
     padding: 30px 0;
     font-family: $navigationFontFamily;
 
-    &--mobile {
-      display: none;
-    }
-
     &::after {
       content: '';
       position: absolute;
@@ -85,6 +81,7 @@
     position: absolute;
     background-image: none;
     height: auto;
+    top: 100%;
 
     &__offset {
       display: none;
@@ -103,20 +100,11 @@
       padding: 20px 0;
       font-size: 1em;
 
-      &--mobile {
-        padding-top: 20px !important;
-        text-align: center;
-        width: 100vw;
-        display: block;
-        background-color: #ffffff;
-
-        &::after {
-          content: none;
-          left: 0;
-        }
+      &:first-child {
+        padding-top: 20px;
       }
 
-      &:nth-child(4) {
+      &:nth-child(3) {
 
         &::after {
           content: none;

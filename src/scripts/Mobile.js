@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Power1, TimelineLite } from "gsap";
+import { Power1, TimelineLite } from 'gsap';
 
 const Mobile = function (options = {}) {
   this.menuIsOpen = false;
@@ -43,7 +43,7 @@ Mobile.prototype.animateWindow = function () {
     parallaxLayers,
   ], {opacity: 0})
     .to(loader, 0.5, {opacity: 0}, 0.3)
-    .set(loader, {display: "none"})
+    .set(loader, {display: 'none'})
     .fromTo(header, 0.5, {y: -100}, {y: 0, ease: Power1.easeIn}, 0.5)
     .add('headerTransitionEnd')
     .fromTo(heroTitle, 0.5, {y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
@@ -57,16 +57,27 @@ Mobile.prototype.animateWindow = function () {
 };
 
 Mobile.prototype.toggleMenu = function () {
-  const {navigation, navigationList} = this.domNodes;
+  const {
+    navigation,
+    navigationList,
+    mobileMenuHeader,
+    logo,
+  } = this.domNodes;
   const timeLine = new TimelineLite();
 
   if (!this.menuIsOpen) {
     timeLine.set(navigation, {display: 'block'})
+      .set(mobileMenuHeader, {opacity: 1})
+      .to(logo, 0.5, {opacity: 0})
+      .to(mobileMenuHeader, 0.5, {marginTop: 0}, '+=0')
       .fromTo(navigation, 0.5, {opacity: 0}, {opacity: 1})
       .staggerFromTo(navigationList, 0.5, {opacity: 0}, {opacity: 1}, 0.5);
   } else {
     timeLine.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
+      .to(mobileMenuHeader, 0.5, {opacity: 0}, '+=0')
+      .to(logo, 0.5, {opacity: 1}, '+=0')
       .set(navigation, {display: 'none',})
+      .set(mobileMenuHeader, {marginTop: '-100px'})
       .set(navigationList, {opacity: 0});
   }
   this.menuIsOpen = !this.menuIsOpen;

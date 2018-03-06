@@ -23,6 +23,9 @@
   }
 
   &__title {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 80px;
     padding-top: 30px;
     font-family: $heroTitleFontFamily;
     position: relative;

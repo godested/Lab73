@@ -6,7 +6,7 @@ import DomNodes from "./DomNodes";
 $(document).ready(function () {
   const domNodes = new DomNodes().getNodes().list;
 
-  if(window.innerWidth > 768) {
+  if (window.innerWidth > 768) {
     const desktop = new Desktop({
       domNodes: domNodes
     });
