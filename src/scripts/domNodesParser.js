@@ -1,13 +1,7 @@
 import $ from "jquery";
 
-const DomNodes = function () {
-  this.list = {};
-
-  this.getNodes = this.getNodes.bind(this);
-};
-
-DomNodes.prototype.getNodes = function () {
-  this.list = {
+const domNodesParser = function () {
+  return  {
     menuButton: $('.menu-button'),
     navigation: $('.navigation'),
     navigationList: $('.navigation__item'),
@@ -32,9 +26,6 @@ DomNodes.prototype.getNodes = function () {
     mobileMenuHeader: $('.mobile-menu-header'),
     mobileLogo: $('.mobile-menu-header__logo')
   };
-
-  return this;
 };
 
-
-export default DomNodes;
+export default domNodesParser;

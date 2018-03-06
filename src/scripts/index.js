@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import Desktop from './Desktop';
 import Mobile from './Mobile'
-import DomNodes from "./DomNodes";
+import domNodesParser from "./domNodesParser";
 
 $(document).ready(function () {
-  const domNodes = new DomNodes().getNodes().list;
+  const domNodes = domNodesParser();
 
   if (window.innerWidth > 768) {
     const desktop = new Desktop({
