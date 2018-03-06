@@ -2,6 +2,8 @@ import { Power1, TimelineMax } from 'gsap';
 import Parallax from 'parallax-js';
 import $ from 'jquery';
 
+let parallax;
+
 const onLoadAnimation = function () {
   const timeLine = new TimelineMax();
 
@@ -10,8 +12,7 @@ const onLoadAnimation = function () {
   const heroTitle = $('.hero__title');
   const heroDescription = $('.hero__description');
   const heroKeywordBorder = $('.hero__keyword .border');
-  const pageNavigationLink = $('.page-navigation__link');
-  let parallax;
+  const pageNavigationLink = $('.page-navigation__inner');
   const parallaxLayers = $('.parallax__layer');
 
   timeLine.set([
@@ -39,4 +40,5 @@ const onLoadAnimation = function () {
     .staggerFromTo(pageNavigationLink, 0.5, {y: 50}, {opacity: 1, y: 0}, 0.5);
 };
 
+export { parallax };
 export default onLoadAnimation;
