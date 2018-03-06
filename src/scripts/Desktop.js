@@ -27,7 +27,7 @@ Desktop.prototype.animateWindow = function () {
   } = this.domNodes;
 
   let {createParallax} = this;
-  const animationConfig = this.animationConfig.onLoad;
+  const {duration} = this.animationConfig.onLoad;
   const timeLine = new TimelineLite();
 
   timeLine.set([
@@ -36,17 +36,17 @@ Desktop.prototype.animateWindow = function () {
     parallaxLayers,
     pageNavigationLink
   ], {opacity: 0})
-    .to(loader, animationConfig.duration, {opacity: 0}, 0.3)
+    .to(loader, duration, {opacity: 0}, 0.3)
     .set(loader, {display: "none"})
-    .fromTo(header, animationConfig.duration , {y: -100}, {y: 0, ease: Power1.easeIn}, animationConfig.duration)
+    .fromTo(header, duration , {y: -100}, {y: 0, ease: Power1.easeIn}, duration)
     .add('headerTransitionEnd')
-    .fromTo(heroTitle, animationConfig.duration, {y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
+    .fromTo(heroTitle, duration, {y: 50}, {opacity: 1, y: 0}, 'headerTransitionEnd')
     .add('titleTransitionEnd')
-    .fromTo(heroKeywordBorder, animationConfig.duration, {width: 0}, {width: '98%'}, 'titleTransitionEnd')
-    .fromTo(heroDescription, animationConfig.duration, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
-    .staggerFromTo(parallaxLayers, animationConfig.duration, {scale: 0.5}, {scale: 1, opacity: 1}, animationConfig.duration, 'headerTransitionEnd')
+    .fromTo(heroKeywordBorder, duration, {width: 0}, {width: '98%'}, 'titleTransitionEnd')
+    .fromTo(heroDescription, duration, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
+    .staggerFromTo(parallaxLayers, duration, {scale: 0.5}, {scale: 1, opacity: 1}, duration, 'headerTransitionEnd')
     .call(createParallax)
-    .staggerFromTo(pageNavigationLink, animationConfig.duration, {top: "50px"}, {opacity: 1, top: 0}, animationConfig.duration)
+    .staggerFromTo(pageNavigationLink, duration, {top: "50px"}, {opacity: 1, top: 0}, duration)
     .call(function () {
       pageNavigationLink.removeAttr('style');
     });
@@ -56,13 +56,13 @@ Desktop.prototype.animateWindow = function () {
 
 Desktop.prototype.toggleMenu = function () {
   const {navigation, navigationList} = this.domNodes;
-  const animationConfig = this.animationConfig.menu;
+  const {duration} = this.animationConfig.menu;
   const timeLine = new TimelineLite();
 
   if (!this.menuIsOpen) {
     timeLine.set(navigation, {display: 'block'})
-      .fromTo(navigation, animationConfig.duration, {opacity: 0}, {opacity: 1})
-      .to(navigation, animationConfig.duration, {backgroundPositionX: 0})
+      .fromTo(navigation, duration, {opacity: 0}, {opacity: 1})
+      .to(navigation, duration, {backgroundPositionX: 0})
       .staggerFromTo(navigationList, 0.5, {
         x: -50,
         opacity: 0
@@ -71,15 +71,9 @@ Desktop.prototype.toggleMenu = function () {
         opacity: 1
       }, 0.5);
   } else {
-    timeLine.fromTo(navigation, animationConfig.duration, {opacity: 1}, {opacity: 0})
-      .set(navigation, {
-        display: 'none',
-        backgroundPositionX: '-100%'
-      })
-      .set(navigationList, {
-        x: -50,
-        opacity: 0
-      });
+    timeLine.fromTo(navigation, duration, {opacity: 1}, {opacity: 0})
+      .set(navigation, {display: 'none', backgroundPositionX: '-100%'})
+      .set(navigationList, {x: -50, opacity: 0});
   }
   this.menuIsOpen = !this.menuIsOpen;
 
@@ -93,7 +87,7 @@ Desktop.prototype.animateAnchorTransition = function (ev) {
     return ((parentNode.innerWidth() / 2) - (childNode.outerWidth() / 2));
   };
 
-  const animationConfig = this.animationConfig.anchorTransition;
+  const {duration, pause} = this.animationConfig.anchorTransition;
 
   const timeLine = new TimelineMax();
 
@@ -111,12 +105,12 @@ Desktop.prototype.animateAnchorTransition = function (ev) {
 
   this.parallax.disable();
 
-  timeLine.to([heroTitle, menuButton], animationConfig.duration, {y: -1000})
-    .to(macbook, animationConfig.duration, {top: '-800', rotation: 60, ease: Power1.easeIn}, animationConfig.pause)
-    .to([parallaxViewport, heroDescription], animationConfig.duration, {opacity: 0, y: 100}, animationConfig.pause)
-    .to(leftButton, animationConfig.duration, {y: -1000, x: -600, rotation: -60, ease: Power1.easeIn}, animationConfig.pause)
-    .to(rightButton, animationConfig.duration, {y: -1000, x: 600, rotation: 60, ease: Power1.easeIn}, animationConfig.pause)
-    .to(logo, animationConfig.duration, {x: getCenterX(logoContainer, logo)}, animationConfig.pause)
+  timeLine.to([heroTitle, menuButton], duration, {y: -1000})
+    .to(macbook, duration, {top: '-800', rotation: 60, ease: Power1.easeIn}, pause)
+    .to([parallaxViewport, heroDescription], duration, {opacity: 0, y: 100}, pause)
+    .to(leftButton, duration, {y: -1000, x: -600, rotation: -60, ease: Power1.easeIn}, pause)
+    .to(rightButton, duration, {y: -1000, x: 600, rotation: 60, ease: Power1.easeIn}, pause)
+    .to(logo, duration, {x: getCenterX(logoContainer, logo)}, pause)
     .set([
       heroTitle,
       heroDescription,
