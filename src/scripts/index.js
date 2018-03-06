@@ -1,10 +1,22 @@
-require('styles/main.scss');
+import $ from 'jquery';
+import Desktop from './Desktop';
+import Mobile from './Mobile'
+import DomNodes from "./DomNodes";
 
 $(document).ready(function () {
-  var page = $('#page');
-  page.html(require('../pages/homePage.html'));
+  const domNodes = new DomNodes().getNodes().list;
 
-  var logo = $('.logo');
+  if (window.innerWidth > 768) {
+    const desktop = new Desktop({
+      domNodes: domNodes
+    });
 
-  var tl = new TimelineLite();
+    desktop.render();
+  } else {
+    const mobile = new Mobile({
+      domNodes: domNodes
+    });
+
+    mobile.render();
+  }
 });

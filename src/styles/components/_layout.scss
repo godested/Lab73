@@ -1,0 +1,21 @@
+body {
+  font-family: $defaultFonts;
+  font-size: 18px;
+  overflow-x: hidden;
+}
+
+.container {
+  @include wrapper();
+}
+
+.row {
+  @include row-flex();
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

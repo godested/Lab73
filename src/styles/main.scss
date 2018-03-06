@@ -1,3 +1,11 @@
-@import "~normalize.css/normalize.css";
+@import "../../node_modules/normalize.css/normalize.css";
 
+@import "./fonts";
+@import "./variables";
+@import "./color-matrix";
+@import "./hamburger-config";
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+@import "./mixins";
+@import "./grid";
+@import "components/layout";
 @import "./styles";

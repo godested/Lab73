@@ -1,8 +1,6 @@
-.header {
-  padding: 33px 0;
-}
-
-.logo {
-  display: block;
-  text-indent: -9999px;
-}
+@import "./components/loader";
+@import "./components/header";
+@import "./components/hero";
+@import "./components/logo";
+@import "./components/page-navigation";
+@import "./components/navigation";
