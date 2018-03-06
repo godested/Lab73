@@ -1,11 +1,11 @@
 import { Power1, TimelineLite } from 'gsap';
 import $ from "jquery";
 import Parallax from "parallax-js";
-import domNodes from './domNodes';
+import DomNodes from './DomNodes';
 
 const Desktop = function () {
   this.menuIsOpen = false;
-  this.domNodes = domNodes();
+  this.domNodes = new DomNodes().getNodes().list;
 
   this.animateWindow = this.animateWindow.bind(this);
   this.animateAnchorTransition = this.animateAnchorTransition.bind(this);

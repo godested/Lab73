@@ -1,7 +1,13 @@
 import $ from "jquery";
 
-const domNodes = function () {
-  return {
+const DomNodes = function () {
+  this.list = {};
+
+  this.getNodes = this.getNodes.bind(this);
+};
+
+DomNodes.prototype.getNodes = function () {
+  this.list = {
     menuButton: $('.menu-button'),
     navigation: $('.navigation'),
     navigationList: $('.navigation__item'),
@@ -20,8 +26,10 @@ const domNodes = function () {
     heroKeywordBorder: $('.hero__keyword .border'),
     pageNavigationLink: $('.page-navigation__inner'),
     parallaxLayers: $('.parallax__layer'),
-  }
+  };
+
+  return this;
 };
 
 
-export default domNodes;
+export default DomNodes;
