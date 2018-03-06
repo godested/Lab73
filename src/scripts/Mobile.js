@@ -4,11 +4,13 @@ import { Power1, TimelineLite } from "gsap";
 const Mobile = function (options = {}) {
   this.menuIsOpen = false;
   this.domNodes = options.domNodes;
+  this.scrollPos = 0;
 
   this.setHeroSizes = this.setHeroSizes.bind(this);
   this.animateWindow = this.animateWindow.bind(this);
   this.toggleMenu = this.toggleMenu.bind(this);
   this.delegateEvents = this.delegateEvents.bind(this);
+  this.animateAnchorTransition = this.animateAnchorTransition.bind(this);
   this.render = this.render.bind(this);
 };
 
@@ -29,7 +31,8 @@ Mobile.prototype.animateWindow = function () {
     heroTitle,
     heroDescription,
     parallaxLayers,
-    heroKeywordBorder
+    heroKeywordBorder,
+    arrowDown
   } = this.domNodes;
 
   const timeLine = new TimelineLite();
@@ -47,7 +50,8 @@ Mobile.prototype.animateWindow = function () {
     .add('titleTransitionEnd')
     .fromTo(heroKeywordBorder, 0.5, {width: 0}, {width: '98%'}, 'titleTransitionEnd')
     .fromTo(heroDescription, 0.5, {y: 50}, {opacity: 1, y: 0}, 'titleTransitionEnd')
-    .staggerFromTo(parallaxLayers, 0.3, {scale: 0.5}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd');
+    .staggerFromTo(parallaxLayers, 0.3, {scale: 0.5}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
+    .fromTo(arrowDown, 0.5, {opacity: 0}, {opacity: 1});
 
   return this;
 };
@@ -70,15 +74,36 @@ Mobile.prototype.toggleMenu = function () {
   return this;
 };
 
+Mobile.prototype.animateAnchorTransition = function (ev) {
+  ev.preventDefault();
+
+  const {pageNavigation} = this.domNodes;
+
+  let st = $(window).scrollTop();
+
+  if (st > this.scrollPos || ev.type === 'click'){
+    $('html, body').animate({
+      scrollTop: $(pageNavigation).offset().top
+    }, 1000);
+
+    $(window).off('scroll');
+  }
+  this.scrollPos = st;
+
+  return this;
+};
+
 Mobile.prototype.delegateEvents = function () {
-  const {menuButton} = this.domNodes;
-  const {toggleMenu} = this;
+  const {menuButton, arrowDownLink} = this.domNodes;
+  const {toggleMenu, animateAnchorTransition} = this;
 
   $(menuButton).click(function () {
     $(this).toggleClass('is-active');
     toggleMenu();
   });
 
+  $(arrowDownLink).click(animateAnchorTransition);
+  $(window).scroll(animateAnchorTransition);
 
   return this;
 };

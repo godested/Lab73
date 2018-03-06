@@ -24,8 +24,11 @@ DomNodes.prototype.getNodes = function () {
     loader: $('.loader'),
     header: $('.header'),
     heroKeywordBorder: $('.hero__keyword .border'),
+    pageNavigation: $('.page-navigation'),
     pageNavigationLink: $('.page-navigation__inner'),
     parallaxLayers: $('.parallax__layer'),
+    arrowDown: $('.arrow-down'),
+    arrowDownLink: $('.arrow-down__link')
   };
 
   return this;
