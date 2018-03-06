@@ -1,11 +1,10 @@
 import { Power1, TimelineLite } from 'gsap';
 import $ from "jquery";
 import Parallax from "parallax-js";
-import DomNodes from './DomNodes';
 
-const Desktop = function () {
+const Desktop = function (options = {}) {
   this.menuIsOpen = false;
-  this.domNodes = new DomNodes().getNodes().list;
+  this.domNodes = options.domNodes;
 
   this.animateWindow = this.animateWindow.bind(this);
   this.animateAnchorTransition = this.animateAnchorTransition.bind(this);
@@ -46,6 +45,8 @@ Desktop.prototype.animateWindow = function () {
     .staggerFromTo(parallaxLayers, 0.3, {scale: 0.5}, {scale: 1, opacity: 1}, 0.5, 'headerTransitionEnd')
     .call(createParallax)
     .staggerFromTo(pageNavigationLink, 0.5, {top: "50px"}, {opacity: 1, top: 0}, 0.5);
+
+  return this;
 };
 
 Desktop.prototype.createParallax = function () {
@@ -60,8 +61,8 @@ Desktop.prototype.toggleMenu = function () {
   const timeLine = new TimelineLite();
 
   if (!this.menuIsOpen) {
-    timeLine.to(navigation, 0.5, {width: '100%'})
-      .set(navigation, {backgroundSize: 'auto 100%'})
+    timeLine.set(navigation, {display: 'block'})
+      .fromTo(navigation, 0.5, {opacity: 0}, {opacity: 1})
       .to(navigation, 0.5, {backgroundPositionX: 0})
       .staggerFromTo(navigationList, 0.5, {
         x: -50,
@@ -73,9 +74,7 @@ Desktop.prototype.toggleMenu = function () {
   } else {
     timeLine.fromTo(navigation, 0.5, {opacity: 1}, {opacity: 0})
       .set(navigation, {
-        width: 0,
-        opacity: 1,
-        backgroundSize: 'auto 0',
+        display: 'none',
         backgroundPositionX: '-100%'
       })
       .set(navigationList, {
@@ -111,12 +110,12 @@ Desktop.prototype.animateAnchorTransition = function (ev) {
 
   this.parallax.disable();
 
-  timeLine.to([heroTitle, menuButton], 2, {y: -1000}, 0)
-    .to([parallaxViewport, heroDescription], 1, {opacity: 0, y: 100}, 0.1)
-    .to(macbook, 1, {top: '-600', rotation: 60, ease: Power1.easeIn}, 0.2)
-    .to(leftButton, 1, {y: -1000, x: -600, rotation: -60, ease: Power1.easeIn}, 0.3)
-    .to(rightButton, 1, {y: -1000, x: 600, rotation: 60, ease: Power1.easeIn}, 0.4)
-    .to(logo, 1, {x: getCenterX(logoContainer, logo)}, 0.5)
+  timeLine.to([heroTitle, menuButton], 2, {y: -1000})
+    .to(macbook, 1, {top: '-800', rotation: 60, ease: Power1.easeIn}, 0)
+    .to([parallaxViewport, heroDescription], 1, {opacity: 0, y: 100}, 0)
+    .to(leftButton, 1, {y: -1000, x: -600, rotation: -60, ease: Power1.easeIn}, 0)
+    .to(rightButton, 1, {y: -1000, x: 600, rotation: 60, ease: Power1.easeIn}, 0)
+    .to(logo, 1, {x: getCenterX(logoContainer, logo)}, 0)
     .set([
       heroTitle,
       heroDescription,
@@ -144,8 +143,7 @@ Desktop.prototype.delegateEvents = function () {
 };
 
 Desktop.prototype.render = function () {
-  this.animateWindow();
-  this.delegateEvents();
+  this.animateWindow().delegateEvents();
 
   return this;
 };

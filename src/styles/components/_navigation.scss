@@ -1,10 +1,12 @@
 .navigation {
+  display: none;
   position: fixed;
+  width: 100%;
   top: 0;
-  width: 0;
+  left: 0;
   height: 100vh;
   background: $navigationBackgroundColor url('../../assets/img-menu-bg.jpg') -100% no-repeat;
-  background-size: auto 0;
+  background-size: contain;
   z-index: 999;
   overflow: hidden;
 
@@ -38,6 +40,10 @@
     padding: 30px 0;
     font-family: $navigationFontFamily;
 
+    &--mobile {
+      display: none;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -58,7 +64,7 @@
       padding-bottom: 0;
 
       &::after {
-        display: none;
+        content: none;
       }
     }
   }
@@ -71,5 +77,60 @@
     &:hover {
       color: #FFFFFF;
     }
+  }
+}
+
+@media screen and (max-width: $break_sm){
+  .navigation {
+    position: absolute;
+    background-image: none;
+    height: auto;
+
+    &__offset {
+      display: none;
+    }
+
+    &__inner {
+      @include size-sm(14);
+      height: auto;
+    }
+
+    &__list {
+      width: 100%;
+    }
+
+    &__item {
+      padding: 20px 0;
+      font-size: 1em;
+
+      &--mobile {
+        padding-top: 20px !important;
+        text-align: center;
+        width: 100vw;
+        display: block;
+        background-color: #ffffff;
+
+        &::after {
+          content: none;
+          left: 0;
+        }
+      }
+
+      &:nth-child(4) {
+
+        &::after {
+          content: none;
+        }
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    &__link {
+      color: #FFFFFF;
+    }
+
   }
 }

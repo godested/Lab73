@@ -20,7 +20,7 @@
 
 @media screen and(max-width: $break_sm) {
 
-  .header {
-    transform: none;
+  .header__inner {
+    padding: 20px;
   }
 }
