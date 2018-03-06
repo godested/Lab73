@@ -1,11 +1,10 @@
 import $ from 'jquery';
-import desktop from './desktop';
-import mobile from './mobile';
+import Desktop from './Desktop';
 
 $(document).ready(function () {
   if(window.innerWidth > 768) {
-    desktop();
+    const desktop = new Desktop();
+    desktop.render();
   } else {
-    mobile();
   }
 });

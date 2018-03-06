@@ -16,11 +16,18 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        use: {
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015'],
+            plugins: [
+              'transform-object-rest-spread'
+            ]
+          }
+        }
       }
     ]
   },
-  devtool: "source-map",
   plugins: [
     new UglifyJsPlugin(),
   ],
